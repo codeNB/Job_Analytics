@@ -24,14 +24,20 @@ deactivate
 ## for data collection
 ```
 pip install scrapy
-pip install beautifulsoup4
-pip install selenium
+pip install bs4
+pip install selenium #not required yet
 ``` 
 *note selenium also needs webdrivers to work with particular webbrowsers*
 
 ## for data exploration, etc.
 TBD
 
+#Running the spider
+Once the required packages are installed the following command will run the spider, and output the file to
+SOMEFILE.json. Currently the spider will only collect the first 4 pages of job post links.
+```
+scrapy runspider target_search.py -o SOMEFILE.json
+```
 
 
 
