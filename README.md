@@ -32,7 +32,7 @@ pip install selenium #not required yet
 ## for data exploration, etc.
 TBD
 
-#Running the spider
+# Running the spider
 Once the required packages are installed the following command will run the spider, and output the file to
 SOME-FILE.json. Caution the current version of target_search will crawl through the entire search which will take a while.
 ```
