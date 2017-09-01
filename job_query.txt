@@ -1,1 +1,1 @@
-https://ca.indeed.com/jobs?as_and=&as_phr=&as_any=programmer+programming+engineer+analyst+developer+front-end+back-end+fullstack&as_not=Nova+Scotia+Quebec+Ontario+PEI&as_ttl=&as_cmp=&jt=all&st=&salary=&radius=0&l=New+Brunswick&fromage=any&limit=10&sort=&psf=advsrch&start=10
+https://ca.indeed.com/jobs?as_and=&as_phr=&as_any=programmer+programming+code+engineer+analyst+developer+front-end+back-end+fullstack&as_not=Nova+Scotia+Quebec+Ontario+PEI+Jersey&as_ttl=&as_cmp=&jt=all&st=&salary=&radius=0&l=New+Brunswick&fromage=any&limit=10&sort=&psf=advsrch&start=0

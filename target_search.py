@@ -26,13 +26,14 @@ class Spider(scrapy.Spider):
                 'url': url
             }
 
-        next_page = soup.find(attrs={'np'}) #test for next page
-        if next_page:
-            sleep(2) # wait 2 sec to space out requests
+        sleep(2) # wait 2 sec to space out requests
 
-            index = int(re.search(r'start=(\d+)', response.url).group(1)) # gets the offset of page
-            next_q = index + 10
+        index = int(re.search(r'start=(\d+)', response.url).group(1)) # gets the offset of page
 
+        # find_all will find prev page and next page buttons on page
+        next_page = len(soup.find_all(attrs={'np'}))
+        next_q = index + 10
+        
+        if next_page > 1 or index < 10: # after the first page stop if there is no next page
             next_page = response.url.replace(f'start={index}', f'start={next_q}') # construct URL
-            if index < 40:
-                yield response.follow(next_page, self.parse)
+            yield response.follow(next_page, self.parse)
