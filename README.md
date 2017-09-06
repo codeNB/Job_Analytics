@@ -20,7 +20,7 @@ deactivate
 ```
 (these are the Linux instructions)
 
-#Current packages to install
+# Current packages to install
 ## for data collection
 ```
 pip install scrapy
@@ -37,4 +37,8 @@ Once the required packages are installed the following command will run the spid
 SOME-FILE.json. Caution the current version of target_search will crawl through the entire search which will take a while.
 ```
 scrapy runspider target_search.py -o SOME-FILE.json
+```
+The output is a list of URLs that link to the full job post sites.
+```
+full_url = 'http://www.indeed.com' + url
 ```
