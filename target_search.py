@@ -1,8 +1,8 @@
 """creates scrapy spider to get all job posts in query"""
 import re
 from time import sleep
-import scrapy
 import bs4 as bs
+import scrapy
 from scrapy.crawler import CrawlerProcess
 
 TARGET = open('job_query.txt').readline()
@@ -24,7 +24,7 @@ class Spider(scrapy.Spider):
             #get posting url
             url = post.a['href']
 
-            print(url, file=OUTPUT)
+            print(url, file=OUTPUT) # prints the url into the ouptut file
 
         sleep(2) # wait 2 sec to space out requests
 
@@ -36,7 +36,8 @@ class Spider(scrapy.Spider):
         
         if next_page > 1 or index < 10: # after the first page stop if there is no next page
             next_page = response.url.replace(f'start={index}', f'start={next_q}') # construct URL
-            yield response.follow(next_page, self.parse)
+            return response.follow(next_page, self.parse)
+
 
 if __name__ == "__main__":
     process = CrawlerProcess({
