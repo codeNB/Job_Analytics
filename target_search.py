@@ -14,10 +14,11 @@ class Spider(scrapy.Spider):
     start_urls = [
         TARGET,
     ]
-
+    custom_settings = {'LOG_LEVEL': 'INFO'}    
     def parse(self, response):
         """main method of the spider class collects input and new content"""
         # collect job posts
+        print('Scraping ' + response.url + '...')
         soup = bs.BeautifulSoup(response.body, 'lxml') 
 
         for post in soup.find_all(attrs={'class': 'row'}): # loops through each tag with row class
