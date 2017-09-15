@@ -2,4 +2,5 @@ python/
 .vscode/
 __pycache__
 post_urls.txt
+domains.txt
 test.json
