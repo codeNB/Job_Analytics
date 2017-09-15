@@ -14,14 +14,14 @@ def merge_link(url: str) -> str:
 class FollowUp(scrapy.Spider):
     """spider to follow links in post_urls"""
     name = 'followup'
-    domains = defaultdict(int)
+    domains = defaultdict(int) # default of domains['some key'] = 0
 
-    start_urls = list(map(merge_link, open(POST_URLS, 'r')))
+    start_urls = list(map(merge_link, open(POST_URLS, 'r'))) #creates list from POST_URLS
 
     def parse(self, response):
         sleep(2)
-        dom = urlparse(response.url).netloc
-        self.domains[dom] += 1
+        dom = urlparse(response.url).netloc #gets the domain of the response
+        self.domains[dom] += 1 # counts occurrences of that domain 
 
 
 if __name__ == "__main__":
@@ -31,6 +31,6 @@ if __name__ == "__main__":
     dom_count = FollowUp()
     process.crawl(dom_count)
     process.start()
-    log = open('domains.txt', 'w')
+    log = open('domains.txt', 'w') 
     for key, value in dom_count.domains.items():
         print(key + ', ' + str(value), file = log) 
