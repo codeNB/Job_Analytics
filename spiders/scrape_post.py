@@ -2,7 +2,6 @@ from urllib.parse import urlparse
 from collections import defaultdict
 from time import sleep
 import scrapy
-from scrapy.crawler import CrawlerProcess
 
 
 POST_URLS = 'post_urls.txt'
@@ -25,6 +24,8 @@ class FollowUp(scrapy.Spider):
 
 
 if __name__ == "__main__":
+    from scrapy.crawler import CrawlerProcess
+    
     process = CrawlerProcess({
         'USER_AGENT': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36'
     })

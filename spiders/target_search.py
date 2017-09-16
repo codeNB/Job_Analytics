@@ -3,7 +3,6 @@ import re
 from time import sleep
 import bs4 as bs
 import scrapy
-from scrapy.crawler import CrawlerProcess
 
 TARGET = open('job_query.txt').readline()
 OUTPUT = open('post_urls.txt', 'w')
@@ -41,6 +40,7 @@ class Spider(scrapy.Spider):
 
 
 if __name__ == "__main__":
+    from scrapy.crawler import CrawlerProcess
     process = CrawlerProcess({
         'USER_AGENT': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36'
     })
