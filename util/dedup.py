@@ -1,9 +1,9 @@
 """provide deduping tool for results from target_search"""
 
-def dedup_post_urls(file: str, outfile: str = 'cleaned_post_urls.txt'):
+def dedup_post_urls(file, outfile='cleaned_post_urls.txt'):
     """ file is the file to dedupe
         outfile is the file to output the deduped file
-            defaults to 'cleaned_post_urls.txt """
+            defaults to 'cleaned_post_urls.txt' """
 
     urls_in = open(file, 'r')
     urls_out = open(outfile, 'w')
