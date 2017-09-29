@@ -4,7 +4,6 @@ from time import sleep
 import bs4 as bs
 import scrapy
 from scrapy.crawler import CrawlerProcess
-from scrapy.crawler import CrawlerProcess
 
 
 def run_target_search(target:str, output:str):
@@ -18,10 +17,11 @@ def run_target_search(target:str, output:str):
     class Target_Search(scrapy.Spider):
         """subclass of scrapy.Spider for scraping indeed results"""
         name = 'job-posts'
+        custom_settings = {'LOG_LEVEL': 'INFO'}
         start_urls = [
             target,
         ]
-        custom_settings = {'LOG_LEVEL': 'INFO'}    
+
         def parse(self, response):
             """main method of the spider class collects input and new content"""
             # collect job posts
