@@ -1,12 +1,12 @@
 """creates scrapy spider to get all job posts in query"""
+import sys
 import re
 from time import sleep
 import bs4 as bs
 import scrapy
 from scrapy.crawler import CrawlerProcess
 
-
-def run_target_search(target:str, output:str):
+def create_target_search(target:str, output:str):
     """ 'target' is the url of the job search. 
         'output' is the name of the output file. 
         
@@ -46,15 +46,4 @@ def run_target_search(target:str, output:str):
                 next_page = response.url.replace(f'start={index}', f'start={next_q}') # construct URL
                 return response.follow(next_page, self.parse)
 
-    
-    process = CrawlerProcess({
-        'USER_AGENT': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36'
-    })
-    process.crawl(Target_Search)
-    process.start()
-    
-
-if __name__ == "__main__":
-    TARGET = open('../job_query.txt').readline()
-    OUTPUT = 'post_urls.txt'
-    run_target_search(TARGET, OUTPUT)
+    return Target_Search
