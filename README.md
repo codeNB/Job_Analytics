@@ -34,9 +34,11 @@ TBD
 
 # Running the spider
 Once the required packages are installed the following command will run the spider, and output the file to 'post_urls.txt'
-*Caution the current version of target_search will crawl through the entire search which will take a while*.
+*Caution the current version of target_search will crawl through the entire search which will take a while*. While running tests I recomend changing 'data/job_query.txt' to 'data/teacher.txt' in the 'get_posts.py' script as it is a much smaller search.
+
 ```
-python target_search.py
+python get_posts.py
+python get_post_data.py
 ```
 The output is a list of URLs that link to the full job post sites.
 ```
