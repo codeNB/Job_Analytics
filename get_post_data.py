@@ -12,3 +12,4 @@ if __name__ == '__main__':
     else:
         FOLLOWUP = create_followup('data/search_urls.txt', 'data/post_data.txt')
         run_spider(FOLLOWUP)
+        

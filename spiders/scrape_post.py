@@ -1,5 +1,4 @@
 """Second spider to run, gathers text from job post entries"""
-from urllib.parse import urlparse
 from time import sleep
 from bs4 import BeautifulSoup
 from bs4.element import Comment
@@ -15,15 +14,14 @@ def tag_visible(element):
         return False
     elif isinstance(element, Comment):
         return False
-    else:
-        return True
+    return True
 
 def text_from_html(body: str):
     """selects visible text from html"""
     soup = BeautifulSoup(body, 'html.parser')
     text = soup.findAll(text=True)
     visible_text = filter(tag_visible, text)
-    return u' '.join(t.strip() for t in visible_text) 
+    return u' '.join(t.strip() for t in visible_text)
 
 def create_followup(post_urls: str, outfile: str):
     """creates followup spider obj
@@ -38,13 +36,12 @@ def create_followup(post_urls: str, outfile: str):
     class FollowUp(scrapy.Spider):
         """spider to follow links in post_urls"""
         name = 'followup'
-        
+
         start_urls = list(map(merge_link, open(post_urls, 'r'))) #creates list from POST_URLS
 
         def parse(self, response):
             """defines spider behavior TODO change so that it extracts data from post pages"""
             sleep(2)
             print(text_from_html(response.body), file=out)
-            
 
     return FollowUp
