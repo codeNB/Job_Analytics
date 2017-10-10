@@ -8,10 +8,10 @@ from scrapy.crawler import CrawlerProcess
 from twisted.internet import process
 
 def create_target_search(target:str, output:str):
-    """ 'target' is the url of the job search. 
-        'output' is the name of the output file. 
+    """ target: the url of the job search 
+        output: the name of the output file 
         
-        Executes the spider dumping the results to output        
+        Executes the spider dumping the results of the search to output        
     """
     outfile = open(output, 'w')
 

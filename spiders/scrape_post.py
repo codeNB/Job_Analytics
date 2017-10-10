@@ -28,7 +28,9 @@ def text_from_html(body: str):
 def create_followup(post_urls: str, outfile: str):
     """creates followup spider obj
         post_urls: file name of a file containing links to jobposts
-        outfile: desired output file
+        outfile: desired name of output file
+
+        Uses a spider to gather data from the results of the target_search spider.
 
     """
     out = open(outfile, mode='w')
