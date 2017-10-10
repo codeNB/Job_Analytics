@@ -33,10 +33,10 @@ pip install selenium #not required yet
 TBD
 
 # Running the spider
-Once the required packages are installed the following command will run the spider, and output the file to
-SOME-FILE.json. Caution the current version of target_search will crawl through the entire search which will take a while.
+Once the required packages are installed the following command will run the spider, and output the file to 'post_urls.txt'
+*Caution the current version of target_search will crawl through the entire search which will take a while*.
 ```
-scrapy runspider target_search.py -o SOME-FILE.json
+python target_search.py
 ```
 The output is a list of URLs that link to the full job post sites.
 ```
